@@ -25,7 +25,7 @@ class WebAudio {
 
 	calculateTempo = ( e ) => {
 		this.tempo = 60 / e.target.value;
-		beatControl.textContent = `Tempo: ${e.target.value}`;
+		beatControl.textContent = `Tempo: ${e.target.value} BPM`;
 	}
 
 	handleSelect = ( e ) => {
