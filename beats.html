@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Materialize css and script -->
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<title>Beats</title>
+
+	<style>
+		.wrapper-normal, .wrapper-api, .wrapper-web{
+			margin-bottom: 90px;
+		}
+
+		.wrapper-header{
+			text-align: center;
+		}
+
+		.action-container{
+			display: flex;
+			justify-content: space-evenly;
+			flex-wrap: wrap;
+			align-items: center;
+			width: 85%;
+			margin: auto;
+			padding: 20px;
+		}
+
+		.blue{
+			background-color: blue;
+		}
+
+		.red{
+			background-color: red;
+		}
+
+		.audio-btn{
+			width: 100px;
+		}
+
+		#form-controls, #api-form-controls, #form-controls-web{
+			display: flex;
+			padding: 12px;
+			flex-wrap: wrap;
+			width: 450px;
+		}
+
+		#api-form-controls, #form-controls-web{
+			width: 750px;
+		}
+
+		.range-feild-text{
+			display: flex;
+			align-items: center;
+			margin-right: 20px;
+			width: 104px;
+		}
+
+		.range-field{
+			flex: 1;
+		}
+
+		#blink-speed, #frequency, #volume, #blink-speed-web{
+			width: 100%;
+		}
+
+		.blink-container, .blink-container-web{
+			display: flex;
+			width: 87%;
+			margin: auto;
+			padding: 15px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.blink, .blink-web{
+			height: 70px;
+			margin: 5px;
+			flex-basis: 70px;
+			border-radius: 5px;
+			border: 1px solid black;
+		}
+
+		.range-volume, .range-frequency, .range-beat, .select-note{
+			display: flex;
+			flex: 1;
+			flex-basis: 250px;
+		}
+
+		.range-frequency, .range-beat{
+			margin-right: 30px;
+		}
+
+		.input-field{
+			margin: 0;
+			flex: 1;
+		}
+
+		@media only screen and (max-width: 680px) {
+			.range-frequency, .range-beat{
+				margin-right: 0px;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<div class="wrapper-normal">
+		<h4 class="wrapper-header"><u>Audio testing using setTimeout and HTML5 audio tag</u></h4>
+
+		<div class="action-container">
+			<button id="start-beat" class="waves-effect waves-light btn audio-btn">Start</button>
+
+			<form action="#" id="form-controls">
+				<div class="range-feild-text"></div>
+				<p class="range-field">
+					<input type="range" id="blink-speed" min="30" max="160" value="60" name="range"/>
+				</p>
+			</form>
+		</div>
+		
+		<div class="blink-container">
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+			<div class="blink"></div>
+		</div>
+	</div>
+
+	<div class="wrapper-api">
+		<h4 class="wrapper-header"><u>Changing sound frequency and vol. using Web Audio Api</u></h4>
+
+		<div class="action-container">
+			<button id="start-beat-web-audio" class="waves-effect waves-light btn audio-btn">Start</button>
+
+			<form action="#" id="api-form-controls">
+				<div class="range-frequency">
+					<div class="range-feild-text"></div>
+					<p class="range-field">
+						<input type="range" id="frequency" min="200" max="880" value="440" step="10" name="frequency"/>
+					</p>
+				</div>
+
+				<div class="range-volume">
+					<div class="range-feild-text"></div>
+					<p class="range-field">
+						<input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" name="volume"/>
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+	<div class="wrapper-web">
+		<h4 class="wrapper-header"><u>Audio testing using Web Audio Api</u></h4>
+
+		<div class="action-container">
+			<button id="start-beat-web" class="waves-effect waves-light btn audio-btn">Start</button>
+
+			<form action="#" id="form-controls-web">
+				<div class="range-beat">
+					<div class="range-feild-text"></div>
+					<p class="range-field">
+						<input type="range" id="blink-speed-web" min="30" max="160" step="1" value="60" name="range"/>
+					</p>
+				</div>
+
+				<div class="select-note">
+					<div class="range-feild-text">Resolution:</div>
+					<div class="input-field">
+						<select name="select">
+						  <option value="16" selected>16th notes</option>
+						  <option value="8">8th notes</option>
+						  <option value="4">Quater notes</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+		<div class="blink-container-web">
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+			<div class="blink-web"></div>
+		</div>
+	</div>
+		
+
+	<audio class="kick-sound" src="sounds/kick.wav"></audio>
+	<audio class="boom-sound" src="sounds/boom.wav"></audio>
+
+	<script src="./beats.js"></script>
+	<script src="./audio_api.js"></script>
+	<script src="./audio_api_controls.js"></script>
+</body>
+</html>
